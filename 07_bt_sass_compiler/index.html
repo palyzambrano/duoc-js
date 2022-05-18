@@ -1,78 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
 </head>
+
 <body>
+    
+    <section>
+      <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" data-bs-nuevo="maldito js">
+          Toggle width collapse
+        </button>
+      </p>
+      <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div id="mensaje" class="card card-body" style="width: 300px;">
+            This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+          </div>
+        </div>
+      </div>
+    <section>
+
     <!-- Button modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Giorgio!" data-bs-mensaje="Despiertaaa!">
-        botón 1
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      data-bs-nombre="Giorgio!" data-bs-mensaje="Despiertaaa!">
+      botón 1
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Montse" data-bs-mensaje="que tengas un lindo día :)">
-        botón 2
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      data-bs-nombre="Montse" data-bs-mensaje="que tengas un lindo día :)">
+      botón 2
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Javi!" data-bs-mensaje="Fiuu fiuu">
-        botón 3
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Vale!" data-bs-mensaje="Hola Valeeee!">
-        botón 4
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Benja!" data-bs-mensaje="Hola Benjaaa!">
-        botón 5
-    </button>
-  
+
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal de prueba</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam eum nemo
-                nostrum recusandae voluptates rem iure iste sit ab repudiandae veniam adipisci 
-                provident sequi laboriosam nulla enim, cumque exercitationem!
-            </div>
-            <div class="modal-footer">
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam eum 
+          </div>
+          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <!--script bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-     <!--script personalizado-->
-    <script>
-        var modalBootstrap = document.getElementById('exampleModal')
-     
-        modalBootstrap.addEventListener('show.bs.modal', function(event){
-            //monitoreo del boton
-            botonSaludo = event.relatedTarget
-            //atributo que se lee
-            cambioNombre = botonSaludo.getAttribute('data-bs-nombre')
-            cambioMensaje = botonSaludo.getAttribute('data-bs-mensaje')
-            //selectores a modificar
-            tituloModal = modalBootstrap.querySelector('.modal-title')
-            textoModal = modalBootstrap.querySelector('.modal-body')
-            //contenido que se va a modificar
-            tituloModal.textContent = cambioNombre
-            textoModal.innerText = cambioMensaje
 
-        });
-     
-    </script>
+  <!--script bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+
+  <!--script personalizado-->
+  <script>
+    //Botones con modal
+      var modalBootstrap = document.getElementById('exampleModal')
+
+      modalBootstrap.addEventListener('show.bs.modal', function (event) {
+      //monitoreo del boton
+      botonSaludo = event.relatedTarget
+      //atributo que se lee
+      cambioNombre = botonSaludo.getAttribute('data-bs-nombre')
+      cambioMensaje = botonSaludo.getAttribute('data-bs-mensaje')
+      //selectores a modificar
+      tituloModal = modalBootstrap.querySelector('.modal-title')
+      textoModal = modalBootstrap.querySelector('.modal-body')
+      //contenido que se va a modificar
+      tituloModal.textContent = cambioNombre
+      textoModal.innerText = cambioMensaje
+
+    });
+
+    
+    var collapseBootstrap = document.querySelector('#collapseWidthExample')
+    collapseBootstrap.addEventListener('show.bs.collapse',function(event){
+      collapseOpen = event.relatedTarget
+
+      mostrarNuevoMensaje = collapseOpen.getAttribute('data-bs-nuevo')
+      textoCollapse = collapseBootstrap.querySelector('#mensaje')
+      textoCollapse.innerHTML = mostrarNuevoMensaje
+
+    })
+
+  </script>
 </body>
+
 </html>
