@@ -4,30 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <!-- Button modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Giorgio!" data-bs-mensaje="Despiertaaa!">
-        botón 1
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Montse" data-bs-mensaje="que tengas un lindo día :)">
-        botón 2
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Javi!" data-bs-mensaje="Fiuu fiuu">
-        botón 3
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Vale!" data-bs-mensaje="Hola Valeeee!">
-        botón 4
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Benja!" data-bs-mensaje="Hola Benjaaa!">
-        botón 5
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        ejemplo ciclos de vida
     </button>
   
     <!-- Modal -->
@@ -57,22 +43,22 @@
      <!--script personalizado-->
     <script>
         var modalBootstrap = document.getElementById('exampleModal')
-     
-        modalBootstrap.addEventListener('show.bs.modal', function(event){
-            //monitoreo del boton
-            botonSaludo = event.relatedTarget
-            //atributo que se lee
-            cambioNombre = botonSaludo.getAttribute('data-bs-nombre')
-            cambioMensaje = botonSaludo.getAttribute('data-bs-mensaje')
-            //selectores a modificar
-            tituloModal = modalBootstrap.querySelector('.modal-title')
-            textoModal = modalBootstrap.querySelector('.modal-body')
-            //contenido que se va a modificar
-            tituloModal.textContent = cambioNombre
-            textoModal.innerText = cambioMensaje
-
+        //Abriendo
+        modalBootstrap.addEventListener('show.bs.modal', function(){
+            console.log('se abre el modal')
         });
-     
+        //Abierto
+        modalBootstrap.addEventListener('shown.bs.modal', function(){
+            console.log('se muestra el modal')
+        });
+        //Cerrando
+        modalBootstrap.addEventListener('hide.bs.modal', function(){
+            console.log('se cierra el modal')
+        });
+        //Cerrado
+        modalBootstrap.addEventListener('hidden.bs.modal', function(){
+            console.log('se cerró el modal')
+        });
     </script>
 </body>
 </html>

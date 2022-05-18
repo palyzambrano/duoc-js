@@ -4,30 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
     <!-- Button modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Giorgio!" data-bs-mensaje="Despiertaaa!">
+    data-bs-magia="¡Chan!" data-bs-texto="El Modal tiene magia">
         botón 1
     </button>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Montse" data-bs-mensaje="que tengas un lindo día :)">
+    data-bs-magia="¡Hooo!" data-bs-texto="El Modal tiene magia">
         botón 2
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Javi!" data-bs-mensaje="Fiuu fiuu">
-        botón 3
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Vale!" data-bs-mensaje="Hola Valeeee!">
-        botón 4
-    </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-    data-bs-nombre="Benja!" data-bs-mensaje="Hola Benjaaa!">
-        botón 5
     </button>
   
     <!-- Modal -->
@@ -60,16 +51,18 @@
      
         modalBootstrap.addEventListener('show.bs.modal', function(event){
             //monitoreo del boton
-            botonSaludo = event.relatedTarget
+            botonMagico = event.relatedTarget
             //atributo que se lee
-            cambioNombre = botonSaludo.getAttribute('data-bs-nombre')
-            cambioMensaje = botonSaludo.getAttribute('data-bs-mensaje')
+            cambioMagico = botonMagico.getAttribute('data-bs-magia')
+            cambioTexto = botonMagico.getAttribute('data-bs-texto')
             //selectores a modificar
             tituloModal = modalBootstrap.querySelector('.modal-title')
+            botonModal = modalBootstrap.querySelector('.btn-primary')
             textoModal = modalBootstrap.querySelector('.modal-body')
             //contenido que se va a modificar
-            tituloModal.textContent = cambioNombre
-            textoModal.innerText = cambioMensaje
+            tituloModal.textContent = cambioMagico
+            botonModal.innerHTML = cambioMagico
+            textoModal.innerText = cambioTexto
 
         });
      
