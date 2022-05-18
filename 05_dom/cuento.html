@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Editor de texto -->
+            <div class="col-md-6">
+                <form>
+                    <h1>Cuento Colectivo</h1>
+                    <div class="">
+                        <label for="text" >Ingrese aqui el texto</label>
+                        <textarea type="text"  id="text"></textarea>
+                    </div>
+                    <div class="">
+                        <label for="text-color" >Selecciona un color para el texto</label>
+                        <input type="color" id="text-color">
+                    </div>
+                    <div class="">
+                        <label for="bg-color">Selecciona un color de fondo</label>
+                        <input type="color" id="bg-color">
+                    </div>
+                            
+                    <button onClick="imprimirTexto();colorText()" type="button" >Enviar</button>
+                </form>
+            </div>
+            <!-- Visualizar cuento -->      
+            <div class="col-md-6">
+                <div>
+                    <p id="cuento" onclick="colorText()"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        function imprimirTexto(){
+           var imprimir = document.getElementById('text').value;
+           document.getElementById('cuento').append(' ' + imprimir)
+        }
+
+    
+        function colorText(){
+        var texto = document.querySelector("#color-text").value;
+    
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

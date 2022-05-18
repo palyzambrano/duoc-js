@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etiquetado</title>
+</head>
+
+<body>
+    <h1 class="destacado">Inputs</h1>
+    <input type="text" name="nombre" id="nombre" placeholder="escriba aquí su nombre">
+    <h1 class="destacado">Parrafos</h1>
+    <p>primer párrafo</p>
+    <p id="variar">segundo párrafo</p>
+    <p>tercer párrafo</p>
+    <p>cuarto párrafo</p>
+    <p class="destacado">quinto párrafo</p>
+    <p>sexto párrafo</p>
+    <button onClick="leerNombre()">leer el nombre</button>
+    <button onClick="cambiarNombre()">cambiar el nombre</button>
+    <button onClick="mostrarSegundoParrafo()">mostrar segundo párrafo</button>
+    <button onClick="mostrarDestacados()">mostrar destacados</button>
+    <button onClick="cambiarParrafo()">Cambiar párrafo</button>
+    <button onClick="colorearTitulos()">Cambiar color</button>
+    <button id="saludar">Saludar</button>
+
+    <script type="text/javascript">
+        function leerNombre(name) {
+            mostrarNombre = document.getElementById('nombre').value;
+            alert(mostrarNombre);
+        }
+        function cambiarNombre() {
+            document.getElementById('nombre').value = 'Nuevo Nombre';
+        }
+
+        function mostrarSegundoParrafo() {
+            alert(document.getElementById('variar').innerText);
+        }
+
+        function mostrarDestacados(){
+            var elemento = document.querySelectorAll('.destacado');
+            elemento.forEach(function(elemento){
+                alert(elemento.innerText);
+            })
+        }
+
+        function cambiarParrafo(){
+            document.getElementById('variar').innerText = 'Texto Actualizado';
+        }
+
+        function colorearTitulos(){
+            misTitulos = document.getElementsByTagName('h1');
+            for(var i = 0; i < misTitulos.length; i++) {
+                var cadaTitulo = misTitulos.item(i);
+                cadaTitulo.style.color = 'white';
+                cadaTitulo.style.backgroundColor = 'red';
+            }
+        }
+       
+
+            document.getElementById('saludar').addEventListener('click', function(saludar){
+                document.getElementById('variar').innerText = 'Cambiando el mundo!';
+        
+            })
+    
+    </script>
+</body>
+
+</html>

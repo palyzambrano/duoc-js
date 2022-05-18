@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las chicas super poderosas uwu</title>
+</head>
+<body >
+    <input type="button" name="abrir" id="abrir" value="abrir" onclick="abreVentana()">
+    <input type="button" name="cerrar" id="cerrar" value="cerrar" onclick="cierraVentana()">
+    <script>
+        var v1;
+        function abreVentana(){
+            v1=window.open("http://www.duoc.cl","Nueva Ventana","status=yes, resizable=yes, width=500, height=500");
+        }
+        function cierraVentana(){
+            v1.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Meta tags -->
+        <meta charset="utf-8">
+        <title>Arrays: Ejercicio nº1</title>
+    </head>
+    <body onload="feria()">
+        <!-- Encabezado -->
+        <div class="head">
+            <header>
+                <h1>Bucles para Arrays (arreglos)</h1>
+            </header>
+        </div>
+ 
+        <p>
+            <strong>Ejercicio nº1</strong><br>
+        </p>
+ 
+        
+        <script>
+            
+            function feria(){
+                
+                var frutas=['Manzana','Durazno','Pera'];
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+ 
+                document.write('<hr>');
+ 
+                frutas.push("Sandía");
+ 
+                document.write('Agregamos las Sandías<br>');
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+ 
+                document.write('<hr>');
+ 
+                frutas.unshift('Limón');
+ 
+                document.write('Agregamos los Limones<br>');
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+ 
+                document.write('<hr>');
+ 
+                frutas.sort();
+ 
+                document.write('Ordenamos el Array<br>');
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+ 
+                document.write('<hr>');
+ 
+                frutas.reverse();
+ 
+                document.write('Invertimos el Array<br>');
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+ 
+                document.write('<hr>');
+ 
+                ultimo=frutas.pop();
+ 
+                document.write('Sacamos el último elemento:'+ultimo+'<br>');
+ 
+                frutas.forEach(function (item, index) {
+                    document.write(index +') ' + item +'<br>');
+                });
+                
+                document.write('<hr>');
+                    primero=frutas.shift();
+                    document.write('Sacamos el primer elemento: '+primero+'<br>');
+                    frutas.forEach(function (item, index) {
+                        document.write(index +') ' + item +'<br>');
+                    });
+                }
+ 
+            
+        </script>
+        
+    </body>
+ </html>
