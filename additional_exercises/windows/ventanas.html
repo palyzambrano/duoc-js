@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    
+</head>
+<body>
+    <div>
+       <img src="./images/ventana1.png" alt="">
+    </div>
+    <script type="text/javascript">
+        var ventanaEmergenteURL = 'ventana2.html';
+        var redireccionFinalURL = 'ventana3.html';
+       
+    
+        function bienvenida() {
+            var ventana = window.open(ventanaEmergenteURL,"Nueva Ventana","status=yes, resizable=yes, top=150, left=400, width=600, height=600");
+
+            window.setTimeout(function cerrar() {
+                ventana.close();
+                window.location = redireccionFinalURL;
+            }, 5000);
+        }
+
+        window.setTimeout(bienvenida, 6000);
+    </script>
+</body>
+</html>

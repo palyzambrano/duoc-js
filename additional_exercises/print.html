@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Impresion</title>
+    <style>
+        @media print {
+            body {
+                margin: 30px;
+            }
+            section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            h1 {
+                color: teal;
+                text-align: center;
+                font-size: 36px;
+                font-weight: 600;
+                font-family: sans-serif;
+            }
+
+            article {
+                width: 300px;
+                height: auto;
+            }
+
+            article h2 {
+                font-size: 24px;
+            }
+
+            p {
+                width: 270px;
+            }
+
+            .btt {
+                text-decoration: none;
+                border: 1px teal solid;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Imprimir</h1>
+        <article>
+            <h2>Gatito bonito</h2>
+            <img src="data:image/jpeg;base64,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" alt="">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Quidem, molestiae dicta voluptatem tempora velit id
+                voluptas eos.
+            </p>
+            <a class="btt" onclick="window.print()">Imprimir</a>
+        </article>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paly</title>
+</head>
+
+<body onload="main()">
+    <script>
+      function main() {
+        // Pide al usuario ingresar un numero decimal
+        var valor = prompt("Ingrese un numero decimal: ");
+        // Convierte el `string` en numero decimal (`float`)
+        var decimal = parseFloat(valor);
+        // Convierte el `string` en numero entero (`int`)
+        var entero = parseInt(valor);
+        // Parte decimal
+        var parteDecimal = decimal - entero;
+        // Divide entre 3
+        var dividido = parteDecimal / 3;
+        // Decrementar unilateralmente
+       
+
+        // Muestra el resultado
+        var final = dividido--;
+
+        total = document.getElementById("resultado");
+        total.innerHTML = (final + ' puntos');
+      }
+    </script> 
+
+    <h1>Felicidades!</h1>
+    <p> por tu compra ganaste :</p>
+    <p id="resultado"></p>
+    <p>para tu proxima compra.</p>
+  </body>
+
+</html>

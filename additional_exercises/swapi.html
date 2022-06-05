@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWAPI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Birth Year</th>
+        <th scope="col">Starships</th>
+        <th scope="col">Gender</th>
+      </tr>
+    </thead>
+    <tbody id="swapi-people"></tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li id="p1" class="page-item active"><button class="page-link" href="#">1</button></li>
+      <li id="p2" class="page-item"><button  class="page-link" href="#">2</button></li>
+      <li id="p3" class="page-item"><button class="page-link" href="#">3</button></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      function crearFilaDeTabla(data, posicion) {
+        var numeroCol = $('<th scope="row">').text(posicion + 1);
+        var nombreCol = $('<td class="foo">').text(data.name);
+        var fechaCol = $('<td>').text(data.birth_year);
+        var naveCol = $('<td>').text(data.starships);
+        var generoCol = $('<td>').text(data.gender);
+        var fila = $('<tr>')
+          .append(numeroCol)
+          .append(nombreCol)
+          .append(fechaCol)
+          .append(naveCol)
+          .append(generoCol);
+
+        $('#swapi-people').append(fila);
+
+      }
+      function cargarPagina(numeroPagina){
+        var pagina = 'https://swapi.dev/api/people/?page=' + numeroPagina;
+        $('#swapi-people').children().remove();
+        $.ajax(pagina)
+          .done(function (response) {
+            response.results.forEach(crearFilaDeTabla);
+            console.log(response)
+          });
+        
+      }
+
+      $('#p1').click(function () {
+        cargarPagina(1);
+      });
+      $('#p2').click(function () {
+        cargarPagina(2);
+      });
+      $('#p3').click(function () {
+        cargarPagina(3);
+      });
+     
+    cargarPagina(1);
+      
+    });
+  </script>
+</body>
+
+</html>
