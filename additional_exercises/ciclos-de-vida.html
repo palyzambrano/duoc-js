@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <!-- head: info del sitio, SEO, estilos y fuentes -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <!-- fuente de google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <!-- estilo de Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!-- estilo personal -->
+        <link rel="stylesheet" href="./estilo.css">
+    </head>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .modal, .popover-header, .card {
+            color: #000;
+        }
+    </style>
+    <!-- body: tenemos toda la estructura visual del sitio y nuestros scripts -->
+    <body>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>Repaso</h1>
+                    <!-- Botón de modal -->
+                    <!-- Atributos botón apertura de modal: El data-bs-toggle dice que componente se va a abrir y el data-bs-target referencia al elemento que tiene ese ID -->
+                    <button type="button" class="btn btn-secondary boton-ejemplo" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-titulo="Modal 1" data-bs-contenido="Estamos completando el modal 1.">
+                        Botón de ejemplo
+                    </button>
+                    <button type="button" class="btn btn-info boton-ejemplo" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-titulo="Modal 2" data-bs-contenido="Le pusimos contenido al segundo modal.">
+                        Botón de ejemplo
+                    </button>
+                    <button type="button" class="btn btn-danger boton-ejemplo" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-titulo="Modal 3" data-bs-contenido="Terminamos de modificar los modal.">
+                        Botón de ejemplo
+                    </button>
+                    <button type="button" class="btn btn-warning boton-ejemplo" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-titulo="Modal 3" data-bs-contenido="Terminamos de modificar los modal.">
+                        Botón de ejemplo
+                    </button>
+
+                    <!-- formulario -->
+                    <form class="row g-3 my-3">
+                        <div class="col-12">
+                            <label for="ContenidoPersonalizado" class="">Modifiquemos nuestro contenido</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="ContenidoPersonalizado" value="nombre" placeholder="Ingresa contenido acá">
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" id="modificar" class="btn btn-primary mb-3">Enviar</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Modal -->
+                    <!-- Atributos del componente modal: -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- scripts de bootstrap-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <!-- script personal -->
+        <script>
+            // eventos del modal
+            // reconocemos nuestro modal como variable
+            Modal = document.getElementById('exampleModal')
+
+            // manejar los eventos
+            // manipularemos la función donde se abre el modal para cambiar el contenido dinámicamente
+            Modal.addEventListener('show.bs.modal', function(){
+                console.log('Se está abriendo el modal');
+
+                boton = event.relatedTarget 
+                titulo = boton.getAttribute('data-bs-titulo')
+                contenido = boton.getAttribute('data-bs-contenido')
+
+                document.getElementById('exampleModalLabel').innerText = titulo
+                document.querySelector('.modal-body').innerText = contenido                
+
+            });
+          
+            //
+            Modal.addEventListener('shown.bs.modal', function(){
+                console.log('Se abrió el modal');
+            });
+            Modal.addEventListener('hide.bs.modal', function(){
+                console.log('Se está cerrando el modal');
+            });
+            Modal.addEventListener('hidden.bs.modal', function(){
+                console.log('Está cerrado el modal');
+            });
+
+            document.getElementById('modificar').addEventListener('click', function(){
+                // se está leyendo el valor del input
+                personalizado = document.getElementById('ContenidoPersonalizado').value
+
+                console.log(personalizado)
+
+                // getAttribute sirve para sacar el valor de un atributo
+                // setAttribute yo puedo modificar el valor ('atributo','nuevo valor')
+
+                // usaremos .length para contabilizar los botones
+                cantidadBotones = document.getElementsByClassName('boton-ejemplo').length
+
+                console.log(cantidadBotones)
+
+                for(i = 0; i <= cantidadBotones ; i++){
+                    document.getElementsByClassName('btn')[i].setAttribute('data-bs-titulo', personalizado)
+                }
+
+            });
+
+        </script>
+    </body>
+</html>

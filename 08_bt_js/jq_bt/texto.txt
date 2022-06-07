@@ -1,0 +1,1 @@
+Este es un texto dinámico que me traigo con ajax.
