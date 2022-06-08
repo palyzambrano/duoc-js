@@ -10,10 +10,7 @@
 </head>
 <body>
     <section class="container-fluid">
-        <div class="row">
-            <div id="swapi-people">
-            </div>
-            </div>
+        <div id="swapi-people" class="row">
         </div>
     </section>
     
@@ -37,11 +34,12 @@
                 var subtitleTarjeta = $('<p class="card-text">').text(data.skin_color);
                 var altura = $('<li class="list-group-item">').text(data.height);
                 var color = $('<li class="list-group-item">').text(data.eye_color);
-                var tarjeta = $('<div class="card col-md-3">') 
+                var tarjeta = $('<div class="card col-md-2 m-3 p-2"></div>') 
                     .append(tituloTarjeta)
                     .append(subtitleTarjeta)
                     .append(altura)
                     .append(color);
+               
 
                 $('#swapi-people').append(tarjeta);
             }
